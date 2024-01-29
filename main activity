@@ -1,0 +1,64 @@
+package com.example.myfirstapp
+
+import android.os.Bundle
+import android.view.View
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+
+class MainActivity : AppCompatActivity() {
+    var et_input1: EditText? = null
+    var et_input2: EditText? = null
+    var btn_add: Button? = null
+    var btn_sub: Button? = null
+    var btn_multi: Button? = null
+    var btn_div: Button? = null
+    var tv_result: TextView? = null
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        et_input1 = findViewById(R.id.et_input1)
+        et_input2 = findViewById(R.id.et_input2)
+        btn_add = findViewById(R.id.btn_add)
+        btn_sub = findViewById(R.id.btn_sub)
+        btn_multi = findViewById(R.id.btn_multi)
+        btn_div = findViewById(R.id.btn_div)
+        tv_result = findViewById(R.id.tv_result)
+
+        btn_add?.setOnClickListener {
+            val num1 = et_input1?.text.toString()
+            val num2 = et_input2?.text.toString()
+
+            val result = Integer.parseInt(num1) + Integer.parseInt(num2)
+
+            tv_result?.text = "Хариу : $result"
+        }
+        btn_div?.setOnClickListener {
+            val num1 = et_input1?.text.toString()
+            val num2 = et_input2?.text.toString()
+
+            val result = Integer.parseInt(num1) / Integer.parseInt(num2)
+
+            tv_result?.text = "Хариу : $result"
+        }
+        btn_sub?.setOnClickListener {
+            val num1 = et_input1?.text.toString()
+            val num2 = et_input2?.text.toString()
+
+            val result = Integer.parseInt(num1) - Integer.parseInt(num2)
+
+            tv_result?.text = "Хариу : $result"
+        }
+        btn_multi?.setOnClickListener {
+            val num1 = et_input1?.text.toString()
+            val num2 = et_input2?.text.toString()
+
+            val result = Integer.parseInt(num1) * Integer.parseInt(num2)
+
+            tv_result?.text = "Хариу : $result"
+        }
+    }
+}
